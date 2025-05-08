@@ -164,9 +164,9 @@ float LPS22HB_T_ReadTemp(uint16_t DeviceAddr)
   /* Build the raw tmp */
   tmp = (((uint16_t)buffer[1]) << 8) + (uint16_t)buffer[0];
 
-  raw_data = (tmp * 10) / 100;
+  raw_data = (int16_t)tmp;
   
-  return ((float)(raw_data / 10.0f));
+  return ((float)(raw_data / 100.0f));
 }
 
 /**
